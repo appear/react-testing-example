@@ -1,5 +1,8 @@
 {
     "extends": "eslint-config-olaf",
+    "env": {
+        "jest": true
+    },
     "rules": {
         "react/react-in-jsx-scope": 0,
         "prettier/prettier": [
