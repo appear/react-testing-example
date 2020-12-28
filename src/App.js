@@ -1,15 +1,11 @@
-import {Router, Link} from '@reach/router'
+import { Router, Link } from '@reach/router'
 
 function Home() {
-  return (
-    <div>Home</div>
-  )
+  return <div>Home</div>
 }
 
 function About() {
-  return (
-    <div>About</div>
-  )
+  return <div>About</div>
 }
 
 function App() {
@@ -24,7 +20,7 @@ function App() {
         <About path="/about" />
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

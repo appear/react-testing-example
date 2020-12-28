@@ -1,0 +1,14 @@
+{
+    "extends": "eslint-config-olaf",
+    "rules": {
+        "react/react-in-jsx-scope": 0,
+        "prettier/prettier": [
+            "error",
+            {
+                "semi": false,
+                "singleQuote": true,
+                "trailingComma": "all"
+            }
+        ]
+    }
+}
