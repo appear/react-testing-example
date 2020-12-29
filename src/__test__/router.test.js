@@ -20,12 +20,14 @@ function renderWithRouter(ui, router) {
 }
 
 describe('Router Test', () => {
-  it('첫 진입시 기본 페이지로 이동한다', () => {
+  it('/ 진입시 Home 페이지를 노출한다.', () => {
     const { container } = renderWithRouter(<App />)
+
+    console.log('container', container.innerHTML)
 
     expect(container.innerHTML).toMatch('Home')
   })
-  it('/about path 로 진입시 About Component 를 노출한다', () => {
+  it('/about 로 진입시 About 페이지를 노출한다', () => {
     const { container } = renderWithRouter(<App />, {
       route: '/about',
     })

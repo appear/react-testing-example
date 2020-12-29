@@ -1,11 +1,19 @@
 import { Router, Link } from '@reach/router'
 
 function Home() {
-  return <div>Home</div>
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  )
 }
 
 function About() {
-  return <div>About</div>
+  return (
+    <div>
+      <h1>About</h1>
+    </div>
+  )
 }
 
 function App() {
