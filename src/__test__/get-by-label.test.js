@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect'
 function Label() {
   return (
     <label htmlFor="username">
-      Username
+      이름
       <input id="username" />
     </label>
   )
@@ -16,12 +16,12 @@ function Labels() {
   return (
     <div>
       <label>
+        이름
         <input />
-        Username
       </label>
       <label>
+        이름
         <input />
-        Username
       </label>
     </div>
   )
@@ -32,20 +32,20 @@ describe('Screen getByLabel Test', () => {
     render(<Label />)
 
     // <input />
-    screen.getByLabelText('Username', { selector: 'input' })
+    screen.getByLabelText('이름', { selector: 'input' })
   })
   it('getAllByLabelText', () => {
     render(<Labels />)
 
     // [<input/>, <input/>]
-    screen.debug(screen.getAllByLabelText(/Username/))
+    screen.debug(screen.getAllByLabelText(/이름/))
   })
   it('getAllByLabelText', () => {
     render(
       <div>
-        <label>Username</label>
+        <label>이름</label>
         <input id="username" />
-        <label htmlFor="usename">Username</label>
+        <label htmlFor="usename">이름</label>
         <input />
         <input />
         <input />
@@ -54,26 +54,26 @@ describe('Screen getByLabel Test', () => {
 
     // error
     // id, for 가 없다면 render 영역 전체를 바라보게된다.
-    screen.debug(screen.getAllByLabelText(/Username/))
+    screen.debug(screen.getAllByLabelText(/이름/))
   })
   it('queryByLabelText', () => {
     render(<Label />)
 
-    screen.queryByLabelText('Username')
+    screen.queryByLabelText('이름')
   })
   it('queryAllByLabelText', () => {
     render(<Labels />)
 
-    screen.queryAllByLabelText('Username')
+    screen.queryAllByLabelText('이름')
   })
   it('findByLabelText', () => {
     render(<Label />)
 
-    screen.queryByLabelText(/Username/)
+    screen.findByLabelText(/이름/)
   })
   it('findAllByLabelText', () => {
     render(<Label />)
 
-    screen.queryAllByLabelText(/Username/)
+    screen.findAllByLabelText(/이름/)
   })
 })

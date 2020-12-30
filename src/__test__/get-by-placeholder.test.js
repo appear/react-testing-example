@@ -3,77 +3,54 @@ import { render } from '@testing-library/react'
 import { screen } from '@testing-library/dom'
 import '@testing-library/jest-dom/extend-expect'
 
-function Label() {
-  return (
-    <label htmlFor="이름">
-      이름
-      <input id="이름" placeholder="홍길동" />
-    </label>
-  )
+function Input() {
+  return <input placeholder="홍길동" />
 }
 
-function Labels() {
+function Inputs() {
   return (
     <div>
-      <label>
-        이름
-        <input />
-      </label>
-      <label>
-        이름
-        <input />
-      </label>
+      <div>
+        <input placeholder="홍길동" />
+      </div>
+      <div>
+        <input placeholder="홍길동" />
+      </div>
     </div>
   )
 }
 
-describe('Screen getByLabel Test', () => {
-  it('getByLabelText', () => {
-    render(<Label />)
+describe('Screen getByPlaceholder Test', () => {
+  it('getByPlaceholderText', () => {
+    render(<Input />)
 
     // <input />
-    screen.getByLabelText('이름', { selector: 'input' })
+    screen.getByPlaceholderText('홍길동')
   })
-  it('getAllByLabelText', () => {
-    render(<Labels />)
+  it('getAllByPlaceholderText', () => {
+    render(<Inputs />)
 
     // [<input/>, <input/>]
-    screen.debug(screen.getAllByLabelText(/이름/))
+    screen.debug(screen.getAllByPlaceholderText(/홍길동/))
   })
-  it('getAllByLabelText', () => {
-    render(
-      <div>
-        <label>이름</label>
-        <input id="이름" />
-        <label htmlFor="usename">이름</label>
-        <input />
-        <input />
-        <input />
-      </div>,
-    )
+  it('queryByPlaceholderText', () => {
+    render(<Input />)
 
-    // error
-    // id, for 가 없다면 render 영역 전체를 바라보게된다.
-    screen.debug(screen.getAllByLabelText(/이름/))
+    screen.queryByPlaceholderText('홍길동')
   })
-  it('queryByLabelText', () => {
-    render(<Label />)
+  it('queryAllByPlaceholderText', () => {
+    render(<Inputs />)
 
-    screen.queryByLabelText('이름')
+    screen.queryAllByPlaceholderText('홍길동')
   })
-  it('queryAllByLabelText', () => {
-    render(<Labels />)
+  it('findByPlaceholderText', () => {
+    render(<Input />)
 
-    screen.queryAllByLabelText('이름')
+    screen.findByPlaceholderText(/홍길동/)
   })
-  it('findByLabelText', () => {
-    render(<Label />)
+  it('findAllByPlaceholderText', () => {
+    render(<Inputs />)
 
-    screen.queryByLabelText(/이름/)
-  })
-  it('findAllByLabelText', () => {
-    render(<Label />)
-
-    screen.queryAllByLabelText(/이름/)
+    screen.findAllByPlaceholderText(/홍길동/)
   })
 })
