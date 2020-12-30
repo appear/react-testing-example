@@ -16,10 +16,10 @@ function Labels() {
   return (
     <div>
       <label>
-        <input id="aa" />
+        <input />
         Username
       </label>
-      <label htmlFor="aa">
+      <label>
         <input />
         Username
       </label>
